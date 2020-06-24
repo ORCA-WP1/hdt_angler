@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="debug" default="false" />
+  <arg name="fake_execution" default="false" />
+  
+  <!-- load robot description -->
+  <param name="robot_description"
+    command="$(find xacro)/xacro.py '$(find hdt_angler_description)/urdf/hdt_angler_b.xacro'" />
+
+  <!-- load the hardware configuration -->
+  <rosparam command="load" file="$(find hdt_angler_description)/config/hardware.yaml" />
+  
+  <!-- load the controller configuration -->
+  <rosparam command="load" file="$(find hdt_angler_description)/config/controllers.yaml" />
+  
+  <!-- load the serial nodes -->
+  <node name="serial_node" pkg="rosserial_python" type="serial_node.py" respawn="false" output="screen"  args="tcp" unless="$(arg fake_execution)">
+  </node>
+  <node name="rosserial_message_info" pkg="rosserial_python" type="message_info_service.py" unless="$(arg fake_execution)"/>
+
+  <!-- load the hardware interface -->
+  <node name="adroit_control" pkg="hdt_adroit_control" type="adroit_control" respawn="false" output="screen">
+    <param name="robot_name" value="hdt_arm" /> 
+    <param name="fake_execution" value="$(arg fake_execution)" /> 
+  </node>
+
+  <!-- load the controllers -->
+  <node name="controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="spawn 
+  /hdt_arm/joint_state_controller 
+  /hdt_arm/arm_controller
+  /hdt_arm/pincer_joint_position_controller"/>
+
+  <!-- launch joystick -->
+  <node name="xbox_joystick" pkg="joy" type="joy_node">
+      <param name="dev" value="/dev/input/js0" />
+      <param name="deadzone" value="0.15" />
+      <param name="autorepeat_rate" value="10.0" />
+  </node>
+  
+  <!-- publish tf for the robot links -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+
+  <!-- start move group  -->
+  <include file="$(find hdt_angler_b_moveit)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="info" value="true"/>
+    <arg name="fake_execution" value="false"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+
+  <!-- start rviz -->
+  <include file="$(find hdt_angler_b_moveit)/launch/moveit_rviz.launch">
+    <arg name="config" value="true"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+
+  <!-- start rviz -->
+  
+<!--Start the control script.  Load in xacro for position limits -->
+  <node name="generic_joystick" pkg="hdt_generic_joystick" type="generic_joystick" respawn="false" output="screen"/>
+
+</launch>

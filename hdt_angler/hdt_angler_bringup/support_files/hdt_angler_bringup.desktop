@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=hdt_angler_bringup
+Type=Application
+Terminal=true
+Exec=bash -c "~/hdt_angler_bringup.sh"

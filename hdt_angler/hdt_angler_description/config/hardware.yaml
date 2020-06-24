@@ -1,0 +1,46 @@
+hdt_arm:
+  hardware_interface:
+    loop_hz: 20
+    joints:
+      - drive1_joint
+      - drive2_joint
+      - drive3_joint
+      - drive4_joint
+      - drive5_joint
+      - drive6_joint
+      - pincer_joint
+    drive1_joint:
+      addr: 1
+      kmin: 100.0
+      kmax: 200.0
+      inertia: 0.1
+    drive2_joint:
+      addr: 2
+      kmin: 100.0
+      kmax: 200.0
+      inertia: 0.1
+    drive3_joint:
+      addr: 3
+      kmin: 100.0
+      kmax: 200.0
+      inertia: 0.1
+    drive4_joint:
+      addr: 4
+      kmin: 100.0
+      kmax: 200.0
+      inertia: 0.1
+    drive5_joint:
+      addr: 5
+      kmin: 100.0
+      kmax: 200.0
+      inertia: 0.1
+    drive6_joint:
+      addr: 6
+      kmin: 100.0
+      kmax: 200.0
+      inertia: 0.1
+    pincer_joint:
+      addr: 10
+      kmin: 100.0
+      kmax: 200.0
+      inertia: 0.1

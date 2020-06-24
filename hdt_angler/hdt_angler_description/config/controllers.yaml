@@ -1,0 +1,55 @@
+hdt_arm:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 20
+  drive1_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: drive1_joint
+  drive2_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: drive2_joint
+  drive3_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: drive3_joint
+  drive4_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: drive4_joint
+  drive5_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: drive5_joint
+  drive6_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: drive6_joint
+  pincer_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: pincer_joint
+  arm_controller:
+    type: position_controllers/JointTrajectoryController
+    state_publish_rate: 20
+    joints:
+      - drive1_joint
+      - drive2_joint
+      - drive3_joint
+      - drive4_joint
+      - drive5_joint
+      - drive6_joint
+    constraints:
+      goal_time: 5.0
+      drive1_joint:
+        trajectory: 0.2618
+        goal:       0.0873
+      drive2_joint:
+        trajectory: 0.2618
+        goal:       0.0873
+      drive3_joint:
+        trajectory: 0.2618
+        goal:       0.0873
+      drive4_joint:
+        trajectory: 0.2618
+        goal:       0.0873
+      drive5_joint:
+        trajectory: 0.2618
+        goal:       0.0873
+      drive6_joint:
+        trajectory: 0.2618
+        goal:       0.0873
