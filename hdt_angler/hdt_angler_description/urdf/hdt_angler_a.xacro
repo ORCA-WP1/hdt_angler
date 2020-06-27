@@ -423,9 +423,9 @@
         </visual>
     </link>
 
-    <!-- endpoint -->
+    <!-- endpoint 0.17-->
     <joint name="endpoint_joint" type="fixed">
-        <origin xyz="0 0 0.17" rpy="${M_PI/2} ${-M_PI/2} 0"/>
+        <origin xyz="0 0 0.1" rpy="${M_PI/2} ${-M_PI/2} 0"/>
         <parent link="drive6_link"/>
         <child link="endpoint_link"/>
     </joint>
@@ -433,4 +433,3 @@
     <link name="endpoint_link">
     </link>
 </robot>
-

@@ -1,0 +1,13 @@
+<launch>
+    <include file="$(find hdt_angler_a_moveit)/launch/demo.launch" />
+  
+    <!-- Play the rosbag that contains the pointcloud data -->
+    <!-- <node pkg="moveit_tutorials" type="bag_publisher_maintain_time" name="point_clouds" /> -->
+  
+    <!-- If needed, broadcast static tf for robot root -->
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="to_panda" args="0 0 0 0 0 0  world panda_link0" /> -->
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="to_camera" args="0.115 0.427 0.570 0 0.2 1.92 camera_rgb_optical_frame world" /> -->
+
+    <!-- args: x y z qx qy qz qw frame_id child_frame_id  period_in_ms -->
+    <node pkg="tf" type="static_transform_publisher" name="hdt_d435_broadcaster" args="-0.10494454550446194 -0.599946175100948 0.7937617581146854 -0.032761464398523385 0.370094808543015 0.3825169938959966 0.8459534671131406 base_link camera_link 100" />
+  </launch>
