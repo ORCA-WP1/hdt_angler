@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- launch joystick -->
+  <node name="xbox_joystick" pkg="joy" type="joy_node">
+      <param name="dev" value="/dev/input/js0" />
+      <param name="deadzone" value="0.15" />
+      <param name="autorepeat_rate" value="10.0" />
+  </node>
+
+</launch>
