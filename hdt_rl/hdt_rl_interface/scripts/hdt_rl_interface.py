@@ -16,4 +16,7 @@ class HDTAnglerRLInterface():
     def __init__(self):
 
     def callback_gym_cmd(self):
+
+    def get_obs(self):
+        pass
         

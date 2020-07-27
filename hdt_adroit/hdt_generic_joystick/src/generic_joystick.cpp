@@ -208,9 +208,9 @@ void JoystickControl::run()
         case MODE_NONE:
           mode_ = switchMode(MODE_ENDPOINT);
           break;
-        case MODE_ENDPOINT:
-          mode_ = switchMode(MODE_NONE);
-          break;
+        // case MODE_ENDPOINT:
+        //   mode_ = switchMode(MODE_NONE);
+        //   break;
         default:
           break;
       }
@@ -424,7 +424,7 @@ void JoystickControl::joyCallback(const sensor_msgs::Joy& msg)
   if (msg.axes[2] - msg.axes[5] < 0.05) {joy_msg_.axes[4] = (msg.axes[2] - msg.axes[5])/2.0;} // Deadband for triggers
   //joy_msg_.axes[4] = (msg.axes[2] - msg.axes[5])/2.0;
   // joy_msg_.axes[5] = static_cast<float>(msg.buttons[5] - msg.buttons[4]);
-  joy_msg_.axes[5] = msg.axes[6];
+  joy_msg_.axes[5] = msg.axes[6]; // original is none
   joy_msg_.axes[6] = msg.axes[7];
   joy_msg_.axes[7] = msg.axes[6];
   

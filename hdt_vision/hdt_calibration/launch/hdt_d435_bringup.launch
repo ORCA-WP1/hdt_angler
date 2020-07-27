@@ -1,0 +1,9 @@
+<launch>
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch" />
+
+    <include file="$(find hdt_calibration)/launch/single.launch" />
+
+    <include file="$(find hdt_calibration)/launch/static_transform_publisher.launch" />
+
+    <node name="marker_pose_pub" pkg="hdt_calibration" type="marker_pose_pub.py" output="screen"/>
+</launch>
