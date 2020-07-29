@@ -11,7 +11,7 @@ class HDTAnglerControl():
     def __init__(self):
         self.pub = rospy.Publisher('joy', Joy, queue_size=1)
         rospy.init_node('hdt_joy_control', anonymous=True)
-        self.rate = rospy.Rate(20)
+        self.rate = rospy.Rate(100)
 
         axes = [0, 0, 1.0, 0, 0, 1.0, 0, 0]
         buttons = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]

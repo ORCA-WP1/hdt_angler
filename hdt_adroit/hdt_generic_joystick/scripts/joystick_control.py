@@ -34,7 +34,7 @@ class JoystickControl:
   
   MAX_VEL = 0.7854
   VEL_SCALE = 0.4
-  LOOP_RATE = 20.0
+  LOOP_RATE = 100.0
   JOY_SCALE = MAX_VEL*VEL_SCALE/LOOP_RATE
   JOY_TOPIC = '/hdt_joystick/joy'
   

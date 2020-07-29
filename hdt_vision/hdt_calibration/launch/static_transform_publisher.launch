@@ -1,6 +1,13 @@
 <launch>  
     <!-- args: x y z qx qy qz qw frame_id child_frame_id  period_in_ms -->
-    <node pkg="tf" type="static_transform_publisher" name="hdt_d435_broadcaster" args="-0.12494454550446194 -0.529946175100948 0.8737617581146854 -0.032761464398523385 0.370094808543015 0.3825169938959966 0.8459534671131406 base_link camera_link 100" />
+    <node pkg="tf" type="static_transform_publisher" name="hdt_d435_broadcaster" args="0.477548167616 
+                                                                                       -0.538206818213 
+                                                                                       0.723716183879 
+                                                                                       -0.315737821271 
+                                                                                       0.236821082761 
+                                                                                       0.724634736637 
+                                                                                       0.564915835712 
+                                                                                       base_link camera_link 10" />
 </launch>
 
 <!-- qw: 0.8459534671131406
@@ -10,3 +17,13 @@ qz: 0.3825169938959966
 x: -0.10494454550446194
 y: -0.599946175100948
 z: 0.7937617581146854 -->
+
+<!-- translation: 
+  x: 0.477548167616
+  y: -0.538206818213
+  z: 0.723716183879
+rotation: 
+  x: -0.315737821271
+  y: 0.236821082761
+  z: 0.724634736637
+  w: 0.564915835712 -->

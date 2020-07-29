@@ -22,7 +22,7 @@
 
 #define MAX_VEL         0.12 // Only used for Endpoint at present.  Best to keep low!  Real max is for each actuator is 0.7854
 #define VEL_SCALE       0.5 
-#define LOOP_RATE       20.0
+#define LOOP_RATE      100.0
 #define JOINT_SCALE     VEL_SCALE/LOOP_RATE // MAX_VEL*VEL_SCALE/LOOP_RATE
 #define LINEAR_SCALE    0.1
 #define ANGULAR_SCALE   MAX_VEL
